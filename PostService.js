@@ -1,11 +1,14 @@
 import Post from "./Post.js";
+import fileService from "./fileService.js";
 
 class PostService {
     async create(post, picture) {
         //console.log(req.query); //For query | sql
         //console.log(req.body); //For showing something
-        const createdPost = await Post.create(post)
+        const fileName = fileService.saveFile(picture)
+        const createdPost = await Post.create({...post, picture: fileName});
         // res.status(200).json("Server is Alive.")
+        console.log(createdPost)
         return(createdPost);
     }
 

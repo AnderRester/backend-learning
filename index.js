@@ -10,6 +10,7 @@ const DB_URL = `mongodb+srv://andrew:root@back-end-learning.iduwr.mongodb.net/?r
 const app = express();
 
 app.use(express.json());
+app.use(express.static('static'));
 app.use(fileUpload({}));
 app.use('/api', router);
 
