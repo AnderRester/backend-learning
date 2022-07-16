@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from "mongoose";
-import Post from "./Post.js";
 import router from "./Router.js";
+import UserRouter from "./UserRouter.js"
 import  fileUpload from "express-fileupload";
 
 const PORT = 15000;
@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.static('static'));
 app.use(fileUpload({}));
 app.use('/api', router);
+app.use('/user', UserRouter);
 
 async function startApp() {
     try {
